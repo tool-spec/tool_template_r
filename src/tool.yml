@@ -2,7 +2,7 @@ tools:
   foobar:
     title: Foo Bar
     description: A dummy tool to exemplify the YAML file
-    version: 0.1
+    # deleted this field - version: 0.1 it should use Git tags instead
     parameters:
       foo_int: 
         type: integer
@@ -20,6 +20,6 @@ tools:
         type: float
         array: true 
       foo_matrix:
-        type: file
+        type: asset # changed from file
       foo_csv:
-        type: file
+        type: asset # changed from file
