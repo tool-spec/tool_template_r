@@ -1,8 +1,14 @@
 # Pull any base image that includes R
-FROM r-base:4.2.0
+FROM r-base:latest
 
-# install the latest version of json2aRgs from CRAN to parse parameters from /in/parameters.json 
-# (use wget to install a specific version of json2aRgs, in this case, you have to manually install dependencies (jsonlite, yaml))
+# Build spec binary from source (arm64 compatible)
+RUN apt-get update && apt-get install -y golang-go git && \
+    git clone https://github.com/hydrocode-de/gotap.git /tmp/gotap && \
+    cd /tmp/gotap && go build -o /usr/local/bin/spec ./main.go && \
+    rm -rf /tmp/gotap && \
+    apt-get remove -y golang-go git && apt-get autoremove -y && apt-get clean
+
+# install the latest version of json2aRgs from CRAN to parse parameters from /in/input.json
 RUN R -e "install.packages('json2aRgs')"
 
 # Do anything you need to install tool dependencies here
@@ -16,4 +22,4 @@ RUN mkdir /src
 COPY ./src /src
 
 WORKDIR /src
-CMD ["Rscript", "run.R"]
+CMD ["spec", "run", "foobar", "--input-file", "/in/input.json"]
