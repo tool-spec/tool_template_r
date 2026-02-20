@@ -1,5 +1,8 @@
 # tool_template_r
 
+[![Docker Image CI](https://github.com/tool-spec/tool_template_r/actions/workflows/docker-image.yml/badge.svg)](https://github.com/tool-spec/tool_template_r/actions/workflows/docker-image.yml)
+[![DOI](https://zenodo.org/badge/558418032.svg)](https://doi.org/10.5281/zenodo.7372629)
+
 This is the template for a generic containerized R tool following the [Tool Specification](https://tool-spec.github.io/tool-specs/) for reusable research software using Docker.
 
 This template can be used to generate new Github repositories from it.

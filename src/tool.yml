@@ -2,6 +2,7 @@ tools:
   foobar:
     title: Foo Bar
     description: A dummy tool to exemplify the YAML file
+    command: "Rscript run.R"
     # deleted this field - version: 0.1 it should use Git tags instead
     parameters:
       foo_int: 
@@ -18,8 +19,11 @@ tools:
           - baz
       foo_array:
         type: float
-        array: true 
+        array: true
+    data:
       foo_matrix:
-        type: asset # changed from file
+        extension: dat
+        description: A matrix file that can be read by numpy
       foo_csv:
-        type: asset # changed from file
+        extension: csv
+        description: A standard formatted CSV file, for autoloading using pandas

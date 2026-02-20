@@ -37,3 +37,6 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# gotap-generated bindings (built during Docker build)
+src/parameters.R
