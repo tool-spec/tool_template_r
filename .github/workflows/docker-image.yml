@@ -50,7 +50,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v6
         with:
-          images: ghcr.io/vforwater/tbr_template_r
+          images: ghcr.io/tool-spec/tbr_template_r
 
       - name: Build and push
         uses: docker/build-push-action@v7
